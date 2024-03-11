@@ -6,15 +6,20 @@
 
     <!-- Player Image -->
 
+    <TextView
+        android:id="@+id/tvPlayerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imagePlayer"
+        android:layout_below="@id/imagePlayer"
+        android:layout_alignStart="@id/imagePlayer"
+        android:layout_marginStart="49dp"
+        android:layout_marginTop="-168dp"
+        android:layout_marginBottom="24dp"
+        android:text="You"
+        android:textSize="18sp" />
+
     <!-- Computer Image -->
-
-    <!-- Rock Button -->
-
-    <!-- Paper Button -->
-
-    <!-- Scissors Button -->
-
-    <!-- Reset Button -->
 
     <ImageView
         android:id="@+id/imagePlayer"
@@ -24,17 +29,29 @@
         android:contentDescription="@string/player_image"
         android:src="@drawable/hand_draw" />
 
+    <TextView
+        android:id="@+id/tvComputerLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/imageComputer"
+        android:layout_below="@id/imageComputer"
+        android:layout_alignStart="@id/imageComputer"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="-166dp"
+        android:layout_marginBottom="22dp"
+        android:text="Computer"
+        android:textSize="18sp" />
 
+    <!-- Rock Button -->
 
     <ImageView
         android:id="@+id/imageComputer"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginStart="135dp"
-        android:layout_toEndOf="@id/imagePlayer"
+        android:layout_marginStart="148dp"
+        android:layout_toEndOf="@+id/imagePlayer"
         android:contentDescription="@string/computer_image"
         android:src="@drawable/hand_draw" />
-
 
     <Button
         android:id="@+id/btnRock"
@@ -46,6 +63,7 @@
         android:layout_marginEnd="18dp"
         android:text="@string/rock" />
 
+    <!-- Paper Button -->
     <Button
         android:id="@+id/btnPaper"
         android:layout_width="wrap_content"
@@ -56,6 +74,7 @@
         android:layout_toStartOf="@id/btnRock"
         android:text="@string/paper" />
 
+    <!-- Scissors Button -->
     <Button
         android:id="@+id/btnScissors"
         android:layout_width="wrap_content"
@@ -66,6 +85,7 @@
         android:layout_toStartOf="@id/btnPaper"
         android:text="@string/scissors" />
 
+    <!-- Reset Button -->
     <Button
         android:id="@+id/btnReset"
         android:layout_width="wrap_content"
@@ -73,7 +93,7 @@
         android:text="@string/reset"
         android:layout_below="@id/btnRock"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="32dp" />
 
     <!-- Score Label -->
     <TextView
@@ -84,6 +104,6 @@
         android:textSize="24sp"
         android:layout_below="@id/btnReset"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
 
 </RelativeLayout>

@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.rockpaperscissor.R;
@@ -93,6 +95,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void playGame(final String playerChoice) {
+
+        Toast.makeText(MainActivity.this, "Rock Paper Scissor Shoot", Toast.LENGTH_SHORT).show();
+
+    btnPaper.setEnabled(false);
+    btnRock.setEnabled(false);
+    btnScissors.setEnabled(false);
+    btnReset.setEnabled(false);
         // Start animation for player
         imagePlayer.setImageDrawable(animationDrawable);
         animationDrawable.start();
@@ -105,8 +114,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // Stop animation
-                animationDrawable.stop();
-                computerAnimationDrawable.stop();
+
 
                 // Get computer choice
                 String[] choices = {"rock", "paper", "scissors"};
@@ -125,14 +133,39 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 // Update score text view
+
+                String winnerMessage;
+                if (result.equals("player")) {
+                    playerScore++;
+                    winnerMessage = "Player wins!";
+                } else if (result.equals("computer")) {
+                    computerScore++;
+                    winnerMessage = "Computer wins!";
+                } else {
+                    winnerMessage = "It's a tie!";
+                }
                 tvScore.setText("Score: Player " + playerScore + " - Computer " + computerScore);
+                Toast.makeText(MainActivity.this, winnerMessage, Toast.LENGTH_SHORT).show();
+
+
+                btnPaper.setEnabled(true);
+                btnRock.setEnabled(true);
+                btnScissors.setEnabled(true);
+                btnReset.setEnabled(true);
             }
+
+
+
+
+
         }, 3000); // Wait for 3 seconds for animation to complete
     }
 
     private void updateImages(String playerChoice, String computerChoice) {
         int playerImageId = getImageId(playerChoice);
         int computerImageId = getImageId(computerChoice);
+        animationDrawable.stop();
+        computerAnimationDrawable.stop();
         imagePlayer.setImageResource(playerImageId);
         imageComputer.setImageResource(computerImageId);
     }
