@@ -95,13 +95,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void playGame(final String playerChoice) {
-
         Toast.makeText(MainActivity.this, "Rock Paper Scissor Shoot", Toast.LENGTH_SHORT).show();
 
-    btnPaper.setEnabled(false);
-    btnRock.setEnabled(false);
-    btnScissors.setEnabled(false);
-    btnReset.setEnabled(false);
+        btnPaper.setEnabled(false);
+        btnRock.setEnabled(false);
+        btnScissors.setEnabled(false);
+        btnReset.setEnabled(false);
+
         // Start animation for player
         imagePlayer.setImageDrawable(animationDrawable);
         animationDrawable.start();
@@ -109,13 +109,13 @@ public class MainActivity extends AppCompatActivity {
         imageComputer.setImageDrawable(computerAnimationDrawable);
         computerAnimationDrawable.start();
 
-        // Wait for the animation to finish
+        // Calculate the total duration of both animations
+        int totalDuration = getTotalAnimationDuration(animationDrawable) + getTotalAnimationDuration(computerAnimationDrawable);
+
+        // Wait for the animations to finish
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                // Stop animation
-
-
                 // Get computer choice
                 String[] choices = {"rock", "paper", "scissors"};
                 Random random = new Random();
@@ -126,14 +126,8 @@ public class MainActivity extends AppCompatActivity {
 
                 // Determine winner and update scores
                 String result = determineWinner(playerChoice, computerChoice);
-                if (result.equals("player")) {
-                    playerScore++;
-                } else if (result.equals("computer")) {
-                    computerScore++;
-                }
 
-                // Update score text view
-
+                // Show winner toast
                 String winnerMessage;
                 if (result.equals("player")) {
                     playerScore++;
@@ -147,19 +141,24 @@ public class MainActivity extends AppCompatActivity {
                 tvScore.setText("Score: Player " + playerScore + " - Computer " + computerScore);
                 Toast.makeText(MainActivity.this, winnerMessage, Toast.LENGTH_SHORT).show();
 
-
+                // Enable buttons after animations and logic completion
                 btnPaper.setEnabled(true);
                 btnRock.setEnabled(true);
                 btnScissors.setEnabled(true);
                 btnReset.setEnabled(true);
             }
+        }, totalDuration + 100); // Add a small extra delay to ensure animations complete
 
-
-
-
-
-        }, 3000); // Wait for 3 seconds for animation to complete
     }
+
+    private int getTotalAnimationDuration(AnimationDrawable animationDrawable) {
+        int duration = 0;
+        for (int i = 0; i < animationDrawable.getNumberOfFrames(); i++) {
+            duration += animationDrawable.getDuration(i);
+        }
+        return duration;
+    }
+
 
     private void updateImages(String playerChoice, String computerChoice) {
         int playerImageId = getImageId(playerChoice);
