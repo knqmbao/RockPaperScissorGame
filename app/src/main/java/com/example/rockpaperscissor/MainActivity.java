@@ -138,8 +138,19 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     winnerMessage = "It's a tie!";
                 }
-                tvScore.setText("Score: Player " + playerScore + " - Computer " + computerScore);
+                tvScore.setText("Player: " + playerScore + "  Computer: " + computerScore);
                 Toast.makeText(MainActivity.this, winnerMessage, Toast.LENGTH_SHORT).show();
+
+                // Check if either player or computer has reached 10 points
+                if (playerScore == 5) {
+                    tvScore.setText("Congratulations! Player Wins!" );
+                    endGame();
+                    return;
+                } else if (computerScore == 5) {
+                    tvScore.setText("Congratulations! Computer Wins!");
+                    endGame();
+                    return;
+                }
 
                 // Enable buttons after animations and logic completion
                 btnPaper.setEnabled(true);
@@ -149,6 +160,16 @@ public class MainActivity extends AppCompatActivity {
             }
         }, totalDuration + 100); // Add a small extra delay to ensure animations complete
 
+    }
+
+    private void endGame() {
+        // Disable buttons to prevent further play
+        btnPaper.setEnabled(false);
+        btnRock.setEnabled(false);
+        btnScissors.setEnabled(false);
+        btnReset.setEnabled(true); // Allow reset
+
+        // You can add any additional end-game actions here
     }
 
     private int getTotalAnimationDuration(AnimationDrawable animationDrawable) {
@@ -197,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
     private void resetGame() {
         playerScore = 0;
         computerScore = 0;
-        tvScore.setText("Score: Player " + playerScore + " - Computer " + computerScore);
+        tvScore.setText("Player: " + playerScore + "  Computer: " + computerScore);
         imagePlayer.setImageResource(R.drawable.hand_draw);
         imageComputer.setImageResource(R.drawable.hand_draw);
     }
