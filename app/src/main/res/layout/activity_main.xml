@@ -4,105 +4,49 @@
     android:layout_height="match_parent"
     android:gravity="center">
 
-    <!-- Player Image -->
-
-    <TextView
-        android:id="@+id/tvPlayerLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imagePlayer"
-        android:layout_below="@id/imagePlayer"
-        android:layout_alignStart="@id/imagePlayer"
-        android:layout_marginStart="49dp"
-        android:layout_marginTop="-168dp"
-        android:layout_marginBottom="24dp"
-        android:text="Player"
-        android:textSize="18sp" />
-
-    <!-- Computer Image -->
 
     <ImageView
-        android:id="@+id/imagePlayer"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@string/player_image"
-        android:src="@drawable/hand_draw" />
-
-    <TextView
-        android:id="@+id/tvComputerLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/imageComputer"
-        android:layout_below="@id/imageComputer"
-        android:layout_alignStart="@id/imageComputer"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="-166dp"
-        android:layout_marginBottom="22dp"
-        android:text="Computer"
-        android:textSize="18sp" />
-
-    <!-- Rock Button -->
-
-    <ImageView
-        android:id="@+id/imageComputer"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginStart="148dp"
-        android:layout_toEndOf="@+id/imagePlayer"
-        android:contentDescription="@string/computer_image"
-        android:src="@drawable/hand_draw" />
-
-    <Button
-        android:id="@+id/btnRock"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imagePlayer"
+        android:id="@+id/imageView"
+        android:layout_width="339dp"
+        android:layout_height="321dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="23dp"
-        android:layout_marginEnd="18dp"
-        android:text="@string/rock" />
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="101dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="308dp"
+        android:src="@drawable/mainlogo" />
 
-    <!-- Paper Button -->
-    <Button
-        android:id="@+id/btnPaper"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imagePlayer"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="56dp"
-        android:layout_toStartOf="@id/btnRock"
-        android:text="@string/paper" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/PlayButton"
+        android:layout_width="183dp"
+        android:layout_height="64dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="112dp"
+        android:layout_marginEnd="115dp"
+        android:layout_marginBottom="226dp"
+        android:background="@drawable/bg_color_btn"
+        android:text="Play Game"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold" />
 
-    <!-- Scissors Button -->
-    <Button
-        android:id="@+id/btnScissors"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/imagePlayer"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="46dp"
-        android:layout_toStartOf="@id/btnPaper"
-        android:text="@string/scissors" />
 
-    <!-- Reset Button -->
-    <Button
-        android:id="@+id/btnReset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/reset"
-        android:layout_below="@id/btnRock"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp" />
-
-    <!-- Score Label -->
-    <TextView
-        android:id="@+id/tvScore"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnReset"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:textSize="24sp" />
-
+    <!--    <Button-->
+<!--        android:id="@+id/PlayButton"-->
+<!--        android:layout_width="139dp"-->
+<!--        android:layout_height="58dp"-->
+<!--        android:layout_alignParentStart="true"-->
+<!--        android:layout_alignParentTop="true"-->
+<!--        android:layout_alignParentEnd="true"-->
+<!--        android:layout_alignParentBottom="true"-->
+<!--        android:layout_marginStart="136dp"-->
+<!--        android:layout_marginTop="376dp"-->
+<!--        android:layout_marginEnd="136dp"-->
+<!--        android:layout_marginBottom="297dp"-->
+<!--        android:text="Play Game" />-->
 </RelativeLayout>
